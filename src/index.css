@@ -125,3 +125,28 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
+/* HERO / PREVIEW tweaks */
+.hero-cta {
+  /* small neon glow for CTA if needed */
+  box-shadow: 0 8px 30px rgba(124,58,237,0.12), 0 0 30px rgba(99,102,241,0.06);
+}
+
+/* category chips */
+.category-chip {
+  @apply px-3 py-1 rounded-md text-sm border border-border bg-card/40 hover:bg-muted/30 transition-colors;
+}
+
+/* adjust input range thumb for a subtle neon glow */
+input[type="range"] {
+  height: 6px;
+  background: linear-gradient(90deg, rgba(124,58,237,0.18), rgba(255,73,219,0.12));
+  border-radius: 999px;
+}
+
+/* keep product image preview constrained in hero */
+.hero-preview img {
+  object-fit: contain;
+  max-height: 96px;
+}

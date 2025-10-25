@@ -1,44 +1,61 @@
-// src/components/CartItem.jsx
 import React from "react";
+import { Button } from "../components/ui/button";
 import { useDispatch } from "react-redux";
-// import { increaseQty, decreaseQty, removeFromCart } from "../redux/feature/cart/cartSlice.js";
-import { increaseQty, decreaseQty, removeFromCart } from "../redux/features/cart/cartSlice.js";
+import {
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+} from "../redux/features/cart/cartSlice";
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex gap-4 items-center bg-white p-4 rounded-md shadow-sm">
-      <img src={item.image} alt={item.title} className="w-20 h-20 object-contain" />
-      <div className="flex-1">
-        <h4 className="font-medium text-sm line-clamp-2">{item.title}</h4>
-        <p className="text-sm text-gray-600">${item.price.toFixed(2)}</p>
+    <div className="flex flex-wrap md:flex-nowrap items-center justify-between bg-card/70 backdrop-blur px-4 py-3 rounded-lg border border-border mb-3 gap-4">
+      {/* Image + details */}
+      <div className="flex items-center gap-3 min-w-[180px] flex-1">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-14 h-14 object-contain rounded-md shrink-0"
+        />
+        <div className="flex flex-col justify-center">
+          <p className="font-semibold line-clamp-2 leading-tight min-h-10">
+            {item.title}
+          </p>
+          <p className="text-sm text-muted-foreground">${item.price}</p>
+        </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        <button
+      {/* Quantity controls */}
+      <div className="flex items-center gap-3 shrink-0">
+        <Button
+          variant="outline"
+          size="icon"
           onClick={() => dispatch(decreaseQty(item.id))}
-          className="px-2 py-1 rounded-md border"
         >
-          −
-        </button>
-        <div className="px-3">{item.quantity}</div>
-        <button
+          –
+        </Button>
+        <span className="min-w-5 text-center">{item.quantity}</span>
+        <Button
+          variant="outline"
+          size="icon"
           onClick={() => dispatch(increaseQty(item.id))}
-          className="px-2 py-1 rounded-md border"
         >
           +
-        </button>
+        </Button>
       </div>
 
-      <div className="text-right">
-        <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
-        <button
+      {/* Remove button aligned consistently */}
+      <div className="flex justify-end shrink-0">
+        <Button
+          variant="destructive"
+          size="sm"
           onClick={() => dispatch(removeFromCart(item.id))}
-          className="mt-2 text-sm text-red-600"
+          className="whitespace-nowrap"
         >
           Remove
-        </button>
+        </Button>
       </div>
     </div>
   );
