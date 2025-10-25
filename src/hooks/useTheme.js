@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 
 export default function useTheme() {
   const [theme, setTheme] = useState(() => {
-    
-    return "dark";
+    if (typeof window !== "undefined") {
+      // Check if user already has a theme saved
+      const saved = localStorage.getItem("theme");
+      return saved ? saved : "dark"; // first-time: dark, else use saved
+    }
+    return "dark"; // server-side fallback
   });
 
   useEffect(() => {
