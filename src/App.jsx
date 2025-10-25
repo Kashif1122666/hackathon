@@ -6,6 +6,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import useTheme from "./hooks/useTheme";
 import { AnimatePresence, motion } from "framer-motion";
+import AskNova from "@/components/AskNova";
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -65,6 +67,7 @@ function AppContainer() {
       <main className="container mx-auto px-4 py-6">
         <AnimatedRoutes />
       </main>
+       <AskNova />
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function Header({ theme, setTheme }) {
           <div className="w-10 h-10 rounded-md bg-linear-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-lg">
             EN
           </div>
-          <h1 className="text-lg font-semibold tracking-wide">Ecom Nova</h1>
+          <h1 className="text-lg font-semibold tracking-wide">Ecom Kaif</h1>
         </Link>
 
         <div className="flex items-center gap-4">

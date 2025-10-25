@@ -150,3 +150,13 @@ input[type="range"] {
   object-fit: contain;
   max-height: 96px;
 }
+
+
+/* Scrollbar style for mini cart in checkout */
+.max-h-60::-webkit-scrollbar {
+  width: 6px;
+}
+.max-h-60::-webkit-scrollbar-thumb {
+  background-color: oklch(0.7 0.1 264 / 0.4);
+  border-radius: 999px;
+}

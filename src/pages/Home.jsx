@@ -103,7 +103,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Ecom Nova — <span className="text-primary">Futuristic Mini Store</span>
+              Ecom Kaif — <span className="text-primary">Futuristic Mini Store</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
               Beautifully curated products from Fake Store API. Use the category filters,
@@ -218,7 +218,7 @@ export default function Home() {
           </div>
         ) : filtered.length === 0 ? (
           <div className="p-8 rounded-lg border border-border bg-card/60 text-center text-muted-foreground">
-            No products match your filters. Try a different category or increase the price.
+            No products .
           </div>
         ) : (
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

@@ -16,6 +16,9 @@ import { toast } from "sonner";
 export default function Checkout() {
   const { cartItems, totalPrice } = useSelector((s) => s.cart);
   const [showDialog, setShowDialog] = useState(false);
+  const [email, setEmail] = useState("");
+  const [zip, setZip] = useState("");
+
   const [form, setForm] = useState({
     name: "",
     address: "",
@@ -35,7 +38,7 @@ export default function Checkout() {
     e.preventDefault();
 
     // validation
-    if (!form.name || !form.address || !form.city || !form.card) {
+    if (!form.name || !form.address || !form.city || !form.card || !email || !zip) {
       toast.error("Please fill in all fields before proceeding.");
       return;
     }
@@ -130,6 +133,24 @@ export default function Checkout() {
           onChange={handleChange}
         />
 
+        {/* New Email and Zip fields */}
+        <div className="flex gap-2">
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="grow"
+          />
+          <Input
+            type="text"
+            placeholder="Zip Code"
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+            className="w-24"
+          />
+        </div>
+
         <Button type="submit" className="w-full mt-4">
           Pay ${totalPrice.toFixed(2)}
         </Button>
@@ -144,7 +165,7 @@ export default function Checkout() {
             </DialogTitle>
           </DialogHeader>
           <p className="text-center text-muted-foreground mt-2">
-            Thank you for shopping with <strong>Ecom Nova</strong>.
+            Thank you for shopping with <strong>Ecom Kaif</strong>.
           </p>
           <p className="text-center text-sm mt-2">Redirecting to home...</p>
         </DialogContent>
